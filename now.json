@@ -1,0 +1,9 @@
+{
+  "name": "next-temp-unit",
+  "alias": "tempunit",
+  "public": true,
+  "type": "docker",
+  "features": {
+    "cloud": "v2"
+  }
+}

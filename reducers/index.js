@@ -26,18 +26,18 @@ const reducer = (model, action) => {
       const { leftUnit } = action
       const { rightUnit, sourceLeft } = model
       const leftValue = sourceLeft ? model.leftValue || 0
-        : convert(rightUnit, leftUnit, model.rightValue)
+        : convert(rightUnit, leftUnit, model.rightValue) || 0
       const rightValue = !sourceLeft ? model.rightValue || 0
-        : convert(leftUnit, rightUnit, model.leftValue)
+        : convert(leftUnit, rightUnit, model.leftValue) || 0
       return { ...model, leftUnit, leftValue, rightValue }
     }
     case ACTIONS.RIGHT_UNIT_CHANGED: {
       const { rightUnit } = action
       const { leftUnit, sourceLeft } = model
       const rightValue = !sourceLeft ? model.rightValue || 0
-        : convert(leftUnit, rightUnit, model.leftValue)
+        : convert(leftUnit, rightUnit, model.leftValue) || 0
       const leftValue = sourceLeft ? model.leftValue || 0
-        : convert(rightUnit, leftUnit, model.rightValue)
+        : convert(rightUnit, leftUnit, model.rightValue) || 0
       return { ...model, rightUnit, leftValue, rightValue }
     }
     default:

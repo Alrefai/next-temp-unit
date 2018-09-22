@@ -1,13 +1,11 @@
 import { pipe, map, curry } from 'ramda'
 import { UNITS } from '../constants'
 
-const handleChange = (dispatch, action) => e => dispatch(action(e.target.value))
-
-const selection = curry((dispatch, action, unit, options) => (
+const selection = curry((onChange, unit, options) => (
   <select
-    className={`db w-100 pa2 bn input-reset br2 br--bottom bg-near-white`}
+    className={`w-100 pa2 bn input-reset br2 br--bottom bg-near-white pointer`}
     value={unit}
-    onChange={handleChange(dispatch, action)}
+    {...{ onChange }}
   >
     {options}
   </select>
@@ -15,7 +13,7 @@ const selection = curry((dispatch, action, unit, options) => (
 
 const options = unit => <option key={unit} value={unit}>{unit}</option>
 
-export const UnitSelection = ({ dispatch, action, unit }) => pipe(
+export const UnitSelection = ({ onChange, unit }) => pipe(
   map(options),
-  selection(dispatch, action, unit)
+  selection(onChange, unit)
 )(UNITS)

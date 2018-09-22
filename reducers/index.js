@@ -40,6 +40,10 @@ const reducer = (model, action) => {
         : convert(rightUnit, leftUnit, model.rightValue) || 0
       return { ...model, rightUnit, leftValue, rightValue }
     }
+    case ACTIONS.CHANGE_SOURCE: {
+      const sourceLeft = !model.sourceLeft
+      return { ...model, sourceLeft }
+    }
     default:
       return model
   }

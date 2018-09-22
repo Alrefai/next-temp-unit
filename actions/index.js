@@ -3,6 +3,7 @@ export const ACTIONS = {
   LEFT_UNIT_CHANGED: `LEFT_UNIT_CHANGED`,
   RIGHT_VALUE_INPUT: `RIGHT_VALUE_INPUT`,
   RIGHT_UNIT_CHANGED: `RIGHT_UNIT_CHANGED`,
+  CHANGE_SOURCE: `CHANGE_SOURCE`,
 }
 
 export const leftValueAction = leftValue => ({
@@ -24,3 +25,5 @@ export const rightUnitAction = rightUnit => ({
   type: ACTIONS.RIGHT_UNIT_CHANGED,
   rightUnit,
 })
+
+export const changeSourceAction = { type: ACTIONS.CHANGE_SOURCE }
